@@ -121,3 +121,35 @@
     @apply bg-background text-foreground;
   }
 }
+@layer base {
+  /* Avoid accidental horizontal overflow */
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Keep media inside the viewport */
+  img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Long code/strings shouldn’t push layout wide */
+  pre, code, kbd, samp {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* Keep your existing rules */
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
